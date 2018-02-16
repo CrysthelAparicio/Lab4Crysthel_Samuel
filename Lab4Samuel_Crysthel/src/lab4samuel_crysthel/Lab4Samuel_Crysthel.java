@@ -68,8 +68,18 @@ public class Lab4Samuel_Crysthel {
                         + "c)ELIMINAR TRANSPORTES");
                 switch (op2) {
                     case "a":
+                        int indicador=0,distancia=0,altitud=0;
+                        String gasolina="",paisdepartida="",paisdellegada="",combustible="", planetadellegada="", planetadepartida="";
+                        agregagarMedioTransporte();
+                        agregarAereoNormal( indicador,  distancia,  altitud);
+                        agregarHelicopeto(gasolina, paisdepartida, paisdellegada, indicador, distancia, altitud);
+                        agregarAvionComercial(gasolina, paisdepartida, paisdellegada, indicador, distancia, altitud);
+                        agregarEspacial( gasolina,  paisdepartida,  paisdellegada,  indicador,  distancia,  altitud);
+                        agregarNaveEspacial(combustible, planetadellegada, planetadepartida,  indicador,  distancia,  altitud);
+                        agregarCohete(combustible, planetadellegada, planetadepartida,  indicador,  distancia,  altitud);
                         break;
                     case "b":
+                        modificartransporte();
                         break;
                     case "c":
                         break;
@@ -93,6 +103,8 @@ public class Lab4Samuel_Crysthel {
                         + "c)ELIMINAR PRIMATES");
                 switch (op4) {
                     case "a":
+                        String nombre="",  grupo="",  sexo="",  altura="",  peso="";
+                        agregarPrimates(nombre,  grupo,  sexo,  altura,  peso);
                         break;
                     case "b":
                         modificarprimates();
@@ -218,6 +230,100 @@ public class Lab4Samuel_Crysthel {
     public static void modificartransporte(){
          String pos1 = JOptionPane.showInputDialog("Ingrese la posicion que desea modificar: ");
         int pos = Integer.parseInt(pos1);
+        String op = JOptionPane.showInputDialog("a)Indicador tanque lleno\n"
+                + "b)altitud \n"
+                + "c)Aereo Nacional\n"
+                + "d)distancia \n"
+                + "e)Espacial");
+        switch(op){
+            case "a":
+                String indicadordetanque= JOptionPane.showInputDialog("Ingrese el indicador de tanque: ");
+                int indicador = Integer.parseInt(indicadordetanque);
+                medio.get(pos).setIndicador(indicador);
+                break;
+            case "b":
+                String altitu= JOptionPane.showInputDialog("Ingrese la altitud: ");
+                int altitud = Integer.parseInt(altitu);
+                medio.get(pos).setAltitud(altitud);
+                break;
+            case "c":
+                String op2=JOptionPane.showInputDialog("a) Gasolina\n"
+                        + "b)pais de llegada\n"
+                        + "c)pais de partida\n"
+                        + "d)Helicoptero\n");
+                switch(op2){
+                    case "a":
+                        String gasolina = JOptionPane.showInputDialog("Ingrese la gasolina: ");
+                        ((AeroNormal)medio.get(pos)).setGasolina(gasolina);
+                        break;
+                    case "b":
+                        String paisdellegada = JOptionPane.showInputDialog("Ingrese el pais de llegada: ");
+                        ((AeroNormal)medio.get(pos)).setPaisdellegada(paisdellegada);
+                        break;
+                    case "c":
+                        String paisdepartida = JOptionPane.showInputDialog("Ingrese el pais de partida: ");
+                        ((AeroNormal)medio.get(pos)).setPaisdepartida(paisdepartida);
+                        break;
+                    case "d":
+                        String op4 = JOptionPane.showInputDialog("a)PATAS\n"
+                        + "b)numero de helices");
+                        switch(op4){
+                            case "a":
+                                String numpat= JOptionPane.showInputDialog("Ingrese el numero de patas: ");
+                                int numpatas=Integer.parseInt(numpat);
+                                ((Helicoptero)medio.get(pos)).setNumdepatas(numpatas);
+                                break;
+                            case "b":
+                                String numhel= JOptionPane.showInputDialog("Ingrese el numero de helices: ");
+                                int numheli=Integer.parseInt(numhel);
+                                ((Helicoptero)medio.get(pos)).setNumdehelices(numheli);
+                                break;
+                        }
+                        break;
+                }
+                break;
+            case "d":
+                String distanci = JOptionPane.showInputDialog("Ingrese la distancia: ");
+                int distancia=Integer.parseInt(distanci);
+                medio.get(pos).setDistancia(distancia);
+                
+                break;
+            case "e":
+                String op5=JOptionPane.showInputDialog("a)combustible\n"
+                        + "b)planeta partida\n"
+                        + "c) partida llegada\n"
+                        + "d)Nave Espacial\n"
+                        + "e) Cohete");
+                switch(op5){
+                    case "a":
+                        String combustible = JOptionPane.showInputDialog("Ingrese el combustible: ");
+                        ((Espacial)medio.get(pos)).setCombustible(combustible);
+                        break;
+                    case "b":
+                        String planetadellegada=JOptionPane.showInputDialog("Ingrese el planeta de llegada: ");
+                        ((Espacial)medio.get(pos)).setPlanetadellegada(planetadellegada);
+                        
+                        break;
+                    case"c":
+                        String planetadepartida=JOptionPane.showInputDialog("Ingrese el planeta de partida: ");
+                        ((Espacial)medio.get(pos)).setPlanetadepartida(planetadepartida);
+                        
+                        break;
+                    case "d":
+                        String numepropul=JOptionPane.showInputDialog("Ingrese el numero de propulsores: ");
+                        int numpropul=Integer.parseInt(numepropul);
+                        ((NovaEspacial)medio.get(pos)).setNumerodepropulsores(numpropul);
+                        break;
+                    case "e":
+                        String cohe=JOptionPane.showInputDialog("Ingrese el numero de separaciones: ");
+                        int numdesepara=Integer.parseInt(cohe);
+                        ((Cohete)medio.get(pos)).setNumerodeseparaciones(numdesepara);
+                        break;
+                    
+                }
+                break;
+            
+        }
         
     }
 
@@ -738,6 +844,23 @@ public class Lab4Samuel_Crysthel {
         String planetaAsignado = JOptionPane.showInputDialog("Escriba el planeta asignado: ");
         String lugarNacimiento = JOptionPane.showInputDialog("Escriba su lugar de nacimiento: ");
         seres.add(new Primates(areaAsignada, comida, planetaAsignado, lugarNacimiento, nombre, grupo, sexo, altura, peso));
+        
+        
+        
+        
+        String op = JOptionPane.showInputDialog("a)Mono baboon+n"
+                + "b)Gorila Montana");
+        switch(op){
+            case "a":
+                String colordepelo=JOptionPane.showInputDialog("Ingrese el color de pelo: ");
+                seres.add(new MonoBaboom(colordepelo,areaAsignada,  comida,  planetaAsignado, lugarNacimiento,  nombre, grupo, sexo, altura,  peso));
+                break;
+            case "b":
+                String i=JOptionPane.showInputDialog("Ingrese el IQ: ");
+                int iq=Integer.parseInt(i);
+                seres.add(new GorilaMontaña( iq,  areaAsignada,  comida,  planetaAsignado, lugarNacimiento,  nombre, grupo, sexo, altura,  peso));
+                break;
+        }
     }
     
     public static void agregagarMedioTransporte(){
@@ -805,10 +928,10 @@ public class Lab4Samuel_Crysthel {
         return out;
     }
     
-    public static void eliminarIngenieros(){
+    public static void eliminarIngenieros() {
         int p = Integer.parseInt(
-                        JOptionPane.showInputDialog("Posicion a Ingeniero a eliminar: "));
-                seres.remove(p);
+                JOptionPane.showInputDialog("Posicion a Ingeniero a eliminar: "));
+        seres.remove(p);
     }
 }
 
