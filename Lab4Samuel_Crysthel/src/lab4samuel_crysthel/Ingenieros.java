@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author COPECO -13
  */
-public class Ingenieros extends SeresVivos {
+public abstract class Ingenieros extends SeresVivos {
 
     private String correo;
     private String nombreUsuario;
@@ -86,5 +86,12 @@ public class Ingenieros extends SeresVivos {
     public String toString() {
         return "Ingenieros{" + "correo=" + correo + ", nombreUsuario=" + nombreUsuario + ", idioma=" + idioma + ", password=" + password + ", cantidadCafe=" + cantidadCafe + ", fechaNacimiento=" + fechaNacimiento + '}';
     }
+
+    @Override
+    public float llenarComida() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public abstract float llenarCafe();
 
 }

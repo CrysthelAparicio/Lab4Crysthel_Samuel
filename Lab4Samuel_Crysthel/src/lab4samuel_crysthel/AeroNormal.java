@@ -5,6 +5,8 @@
  */
 package lab4samuel_crysthel;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Samuel
@@ -20,7 +22,7 @@ public class AeroNormal extends MedioTransporte {
 
     public AeroNormal(String gasolina, String paisdepartida, String paisdellegada, int indicador, int distancia, int altitud) {
         super(indicador, distancia, altitud);
-        this.gasolina = gasolina;
+        setGasolina(gasolina);
         this.paisdepartida = paisdepartida;
         this.paisdellegada = paisdellegada;
     }
@@ -30,7 +32,23 @@ public class AeroNormal extends MedioTransporte {
     }
 
     public void setGasolina(String gasolina) {
-        this.gasolina = gasolina;
+        String gaso = JOptionPane.showInputDialog("Que gaso desea?"
+                + "a.Super"
+                + "b.Regular"
+                + "c.Diesel");
+        switch (gaso) {
+            case "a":
+                this.gasolina = gasolina;
+                break;
+            case "b":
+                this.gasolina = gasolina;
+                break;
+            case "c":
+                this.gasolina = gasolina;
+                break;
+        }
+        
+
     }
 
     public String getPaisdepartida() {
@@ -52,6 +70,11 @@ public class AeroNormal extends MedioTransporte {
     @Override
     public String toString() {
         return "AeroNormal{" + "gasolina=" + gasolina + ", paisdepartida=" + paisdepartida + ", paisdellegada=" + paisdellegada + '}';
+    }
+
+    @Override
+    public float llenarTanque() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

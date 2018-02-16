@@ -72,6 +72,7 @@ public class Lab4Samuel_Crysthel {
                     case "b":
                         break;
                     case "c":
+                        eliminarMedioTransporte();
                         break;
                 }
                 break;
@@ -81,7 +82,6 @@ public class Lab4Samuel_Crysthel {
                         + "b)ELIMINAR INGENIEROS");
                 switch (op3) {
                     case "a":
-                        modificarIngeniero();
                         break;
                     case "b":
                         break;
@@ -716,7 +716,12 @@ public class Lab4Samuel_Crysthel {
         String sexo = JOptionPane.showInputDialog("Escriba su genero: ");
         String altura = JOptionPane.showInputDialog("Escriba su altura: ");
         String peso = JOptionPane.showInputDialog("Escriba su peso: ");
-        seres.add(new SeresVivos(nombre, grupo, sexo, altura, peso));
+        seres.add(new SeresVivos(nombre, grupo, sexo, altura, peso) {
+            @Override
+            public float llenarComida() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
         agregarIngenieros(nombre, grupo, sexo, altura, peso);
         agregarPrimates(nombre, grupo, sexo, altura, peso);
 
@@ -729,7 +734,12 @@ public class Lab4Samuel_Crysthel {
         String password = JOptionPane.showInputDialog("Escriba su password: ");
         int cantidadCafe = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de cafe: "));
         String fechaNacimiento = JOptionPane.showInputDialog("Escriba su fecha Nacimiento: ");
-        seres.add(new Ingenieros(correo, nombreUsuario, idioma, password, cantidadCafe, fechaNacimiento, nombre, grupo, sexo, altura, peso));
+        seres.add(new Ingenieros(correo, nombreUsuario, idioma, password, cantidadCafe, fechaNacimiento, nombre, grupo, sexo, altura, peso) {
+            @Override
+            public float llenarCafe() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
     }
     
     public static void agregarPrimates(String nombre, String grupo, String sexo, String altura, String peso){
@@ -744,7 +754,12 @@ public class Lab4Samuel_Crysthel {
         int indicador = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indicador: "));
         int distancia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la distancia: "));
         int altitud = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la altitud: "));
-        medio.add(new MedioTransporte(indicador, distancia, altitud));
+        medio.add(new MedioTransporte(indicador, distancia, altitud) {
+            @Override
+            public float llenarTanque() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
         agregarAereoNormal(indicador, distancia, altitud);
     }
     
@@ -794,11 +809,11 @@ public class Lab4Samuel_Crysthel {
     
     public static void eliminarSeresVivos(){
          int p = Integer.parseInt(
-                        JOptionPane.showInputDialog("Posicion a ser vivo de eliminar: "));
+                        JOptionPane.showInputDialog("Ingrese la posicion de los seres vivos que desea eliminar\n" + listarSeresVivos()));
                 seres.remove(p);
     }
     
-    private String listarSeresVivos() {
+    private static String listarSeresVivos() {
         String out = "";
         for (int i = 0; i < seres.size(); i++)
             out += i + " - " + seres.get(i) + "\n";
@@ -807,8 +822,149 @@ public class Lab4Samuel_Crysthel {
     
     public static void eliminarIngenieros(){
         int p = Integer.parseInt(
-                        JOptionPane.showInputDialog("Posicion a Ingeniero a eliminar: "));
+                        JOptionPane.showInputDialog("Ingrese la posicion del ingeniero que desea eliminar\n" + listarIngenieros()));
+                ing.remove(p);
+    }
+    
+    private static String listarIngenieros() {
+        String out = "";
+        for (int i = 0; i < ing.size(); i++)
+            out += i + " - " + ing.get(i) + "\n";
+        return out;
+    }
+    
+       public static void eliminarPrimates(){
+        int p = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese la posicion de primates que desea eliminar\n" + listarPrimates()));
                 seres.remove(p);
     }
+    
+    private static String listarPrimates() {
+        String out = "";
+        for (int i = 0; i < seres.size(); i++)
+            out += i + " - " + seres.get(i) + "\n";
+        return out;
+    }
+    
+     public static void eliminarMedioTransporte(){
+        int p = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese la posicion del medio que desea eliminar\n" + listarMedioTransporte()));
+                medio.remove(p);
+    }
+    
+    private static String listarMedioTransporte() {
+        String out = "";
+        for (int i = 0; i < medio.size(); i++)
+            out += i + " - " + medio.get(i) + "\n";
+        return out;
+    }
+    
+    public static void eliminarAereoNormal(){
+        int p = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese la posicion del aereo que desea eliminar\n" + listarAereoNormal()));
+                medio.remove(p);
+    }
+    
+    private static String listarAereoNormal() {
+        String out = "";
+        for (int i = 0; i < medio.size(); i++)
+            out += i + " - " + medio.get(i) + "\n";
+        return out;
+    }
+    
+    public static void eliminarHelicoptero(){
+        int p = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese la posicion del helicoptero que desea eliminar\n" + listarHelicoptero()));
+                medio.remove(p);
+    }
+    
+    private static String listarHelicoptero() {
+        String out = "";
+        for (int i = 0; i < medio.size(); i++)
+            out += i + " - " + medio.get(i) + "\n";
+        return out;
+    }
+    
+    public static void eliminarAvionComercial(){
+        int p = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese la posicion del avion comercial que desea eliminar\n" + listarAvionComercial()));
+                medio.remove(p);
+    }
+    
+    private static String listarAvionComercial() {
+        String out = "";
+        for (int i = 0; i < medio.size(); i++)
+            out += i + " - " + medio.get(i) + "\n";
+        return out;
+    }
+    
+    public static void eliminarEspacial(){
+        int p = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese la posicion de la espacial que desea eliminar\n" + listarEspacial()));
+                medio.remove(p);
+    }
+    
+    private static String listarEspacial() {
+        String out = "";
+        for (int i = 0; i < medio.size(); i++)
+            out += i + " - " + medio.get(i) + "\n";
+        return out;
+    }
+    
+    public static void eliminarNaveEspacial(){
+        int p = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese la posicion de la nave que desea eliminar\n" + listarNaveEspacial()));
+                medio.remove(p);
+    }
+    
+    private static String listarNaveEspacial() {
+        String out = "";
+        for (int i = 0; i < medio.size(); i++)
+            out += i + " - " + medio.get(i) + "\n";
+        return out;
+    }
+    
+    public static void eliminarCohete(){
+        int p;
+        p = Integer.parseInt(
+                JOptionPane.showInputDialog("Ingrese la posicion del Cohete que desea eliminar\n" + listarCohete()));
+                medio.remove(p);
+    }
+    
+    private static String listarCohete() {
+        String out = "";
+        for (int i = 0; i < medio.size(); i++)
+            out += i + " - " + medio.get(i) + "\n";
+        return out;
+    }
+    
+    public static void eliminarMono(){
+        int p;
+        p = Integer.parseInt(
+                JOptionPane.showInputDialog("Ingrese la posicion del mono que desea eliminar\n" + listarMono()));
+                medio.remove(p);
+    }
+    
+    private static String listarMono() {
+        String out = "";
+        for (int i = 0; i < seres.size(); i++)
+            out += i + " - " + seres.get(i) + "\n";
+        return out;
+    }
+    
+       public static void eliminarGorila(){
+        int p;
+        p = Integer.parseInt(
+                JOptionPane.showInputDialog("Ingrese la posicion del gorila que desea eliminar\n" + listarGorila()));
+                medio.remove(p);
+    }
+    
+    private static String listarGorila() {
+        String out = "";
+        for (int i = 0; i < seres.size(); i++)
+            out += i + " - " + seres.get(i) + "\n";
+        return out;
+    }
+    
 }
 

@@ -5,6 +5,8 @@
  */
 package lab4samuel_crysthel;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author COPECO -13
@@ -22,7 +24,7 @@ public class Primates extends SeresVivos {
 
     public Primates(String areaAsignada, int comida, String planetaAsignado, String lugarNacimiento, String nombre, String grupo, String sexo, String altura, String peso) {
         super(nombre, grupo, sexo, altura, peso);
-        this.areaAsignada = areaAsignada;
+        setAreaAsignada(areaAsignada);
         this.comida = comida;
         this.planetaAsignado = planetaAsignado;
         this.lugarNacimiento = lugarNacimiento;
@@ -33,7 +35,18 @@ public class Primates extends SeresVivos {
     }
 
     public void setAreaAsignada(String areaAsignada) {
-        this.areaAsignada = areaAsignada;
+        String area = JOptionPane.showInputDialog("Que area desea entrar?+"
+                + "a.Area Espacial"
+                + "b.Area Normal ");
+        switch(area){
+            case "a":
+                this.areaAsignada = areaAsignada;
+                break;
+            case "b":
+                this.areaAsignada = areaAsignada;
+                break;
+        }
+        
     }
 
     public int getComida() {
@@ -63,6 +76,11 @@ public class Primates extends SeresVivos {
     @Override
     public String toString() {
         return "Primates{" + "areaAsignada=" + areaAsignada + ", comida=" + comida + ", planetaAsignado=" + planetaAsignado + ", lugarNacimiento=" + lugarNacimiento + '}';
+    }
+
+    @Override
+    public float llenarComida() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
