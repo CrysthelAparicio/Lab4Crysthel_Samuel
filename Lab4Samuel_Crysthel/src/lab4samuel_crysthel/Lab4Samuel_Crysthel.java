@@ -25,22 +25,18 @@ public class Lab4Samuel_Crysthel {
         // TODO code application logic here
 
     String op ="";
-        while (!op.equalsIgnoreCase("e")) {
+        while (!op.equalsIgnoreCase("c")) {
             op = JOptionPane.showInputDialog("Menu\n"
-                    + "a) Agregar\n"
-                    + "b) Modificar\n"
-                    + "c) Login\n"
-                    + "d) Eliminar\n"
-                    + "e) Salir");
+                    + "a) Crear Ingenieros\n"
+                    + "b) LogIn\n"
+                    + "c) Salir ");
             switch (op) {
                 case "a":
+                    String nombre="",  grupo="",  sexo="",  altura="",  peso="";
+                    agregarIngenieros( nombre,  grupo,  sexo,  altura,  peso);
                     break;
                 case "b":
-                    break;
-                case "c":
                     LogIn();
-                    break;
-                case "d":
                     break;
             }
         }
@@ -61,10 +57,170 @@ public class Lab4Samuel_Crysthel {
 
     }
     public static void LogInInge(int pos){
-        
-        
+        String op = JOptionPane.showInputDialog("a)Transportes\n"
+                + "b)Ingenieros\n"
+                + "c)Primates\n"
+                + "d)Viajes");
+        switch (op) {
+            case "a":
+                String op2 = JOptionPane.showInputDialog("a)AGREGAR TRANSPORTE\n"
+                        + "b)MODIFICAR TRANSPORTES\n"
+                        + "c)ELIMINAR TRANSPORTES");
+                switch (op2) {
+                    case "a":
+                        break;
+                    case "b":
+                        break;
+                    case "c":
+                        break;
+                }
+                break;
+            case "b":
+                String op3 = JOptionPane.showInputDialog(
+                          "a)MODIFICAR INGENIEROS\n"
+                        + "b)ELIMINAR INGENIEROS");
+                switch (op3) {
+                    case "a":
+                        modificarIngeniero();
+                        break;
+                    case "b":
+                        break;
+                }
+                break;
+            case "c":
+                String op4 = JOptionPane.showInputDialog("a)AGREGAR PRIMATES\n"
+                        + "b)MODIFICAR PRIMATES\n"
+                        + "c)ELIMINAR PRIMATES");
+                switch (op4) {
+                    case "a":
+                        break;
+                    case "b":
+                        modificarprimates();
+                        break;
+                    case "c":
+                        break;
+                }
+
+                break;
+            case "d":
+                break;
+        }
+
+    }
+
+    public static void modificarIngeniero() {
+        String pos1 = JOptionPane.showInputDialog("Ingrese la posicion que desea modificar: ");
+        int pos = Integer.parseInt(pos1);
+        String op = JOptionPane.showInputDialog("a)nombre\n"
+                + "b)grupo\n"
+                + "c)sexo\n"
+                + "d)altura\n"
+                + "e)peso\n"
+                + "f)correo\n"
+                + "g)nombre de usuario\n"
+                + "h)idioma\n"
+                + "i)contrasena\n"
+                + "j)cantidad de cafe\n"
+                + "k)Fecha de nacimiento"
+                + "Ingrese lo que desea modificar: ");
+        switch (op) {
+            case "a":
+                String nombre = JOptionPane.showInputDialog("Escriba el nombre: ");
+                ing.get(pos).setNombre(nombre);
+                break;
+            case "b":
+                String grupo = JOptionPane.showInputDialog("Escriba el grupo sanguineo: ");
+                 ing.get(pos).setGrupo(grupo);
+                break;
+            case "c":
+                String sexo = JOptionPane.showInputDialog("Escriba su sexp: ");
+                 ing.get(pos).setSexo(sexo);
+                break;
+            case "d":
+                String altura = JOptionPane.showInputDialog("Escriba su altura: ");
+                 ing.get(pos).setAltura(altura);
+                break;
+            case "e":
+                String peso = JOptionPane.showInputDialog("Escriba su peso: ");
+                 ing.get(pos).setPeso(peso);
+                break;
+            case "f":
+                String correo = JOptionPane.showInputDialog("Ingrese el correo: ");
+                 ing.get(pos).setCorreo(correo);
+                break;
+            case "g":
+                String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre de usuario: ");
+                 ing.get(pos).setNombreUsuario(nombreUsuario);
+                break;
+            case "h":
+                String idioma = JOptionPane.showInputDialog("Ingrese el idioma: ");
+                 ing.get(pos).setIdioma(idioma);
+                break;
+            case "i":
+                String password = JOptionPane.showInputDialog("Ingrese la contrasena: ");
+                 ing.get(pos).setPassword(password);
+                break;
+            case "j":
+                String cantidaddecafe = JOptionPane.showInputDialog("Ingrese la cantidad del cafe: ");
+                int cantidadCafe = Integer.parseInt(cantidaddecafe);
+                 ing.get(pos).setCantidadCafe(cantidadCafe);
+                break;
+            case "k":
+
+                String fechaNacimiento = JOptionPane.showInputDialog("Ingrese la fecha de nacimiento: ");
+                 ing.get(pos).setFechaNacimiento(fechaNacimiento);
+                break;
+
+        }
         
     }
+    public static void modificarprimates(){
+        String pos1 = JOptionPane.showInputDialog("Ingrese la posicion que desea modificar: ");
+        int pos = Integer.parseInt(pos1);
+        String op = JOptionPane.showInputDialog("a)area asignada\n"
+                + "b)cantidad de comida\n"
+                + "c)planeta asignado\n"
+                + "d)lugar de nacimiento\n"
+                + "e)Mono Baboon\n"
+                + "f)Gorila Montana");
+        switch(op){
+            case "a":
+                String areaasignada = JOptionPane.showInputDialog("Ingrese el area asignada: ");
+                ((Primates)seres.get(pos)).setAreaAsignada(areaasignada);
+                break;
+            case "b":
+                String cantidaddecomida = JOptionPane.showInputDialog("Ingrese la cantidad de comida: ");
+                int cantidadecomida=Integer.parseInt(cantidaddecomida);
+                ((Primates)seres.get(pos)).setComida(cantidadecomida);
+                
+                break;
+            case "c":
+                String planetaasignado =JOptionPane.showInputDialog("Ingrese el planeta asignado: ");
+                ((Primates)seres.get(pos)).setPlanetaAsignado(planetaasignado);
+                break;
+            case "d":
+                String lugardenacimiento =JOptionPane.showInputDialog("Ingrese el lugar de nacimiento: ");
+                ((Primates)seres.get(pos)).setLugarNacimiento(lugardenacimiento);
+                break;
+            case "e":
+                String colordepelo = JOptionPane.showInputDialog("Ingrese el color de pelo: ");
+                ((MonoBaboom) seres.get(pos)).setAreaAsignada(colordepelo);
+                break;
+
+            case "f":
+                String i = JOptionPane.showInputDialog("Ingrese el IQ: ");
+                int iq = Integer.parseInt(i);
+                ((GorilaMontaña) seres.get(pos)).setIq(iq);
+                break;
+        }
+        
+    }
+    public static void modificartransporte(){
+         String pos1 = JOptionPane.showInputDialog("Ingrese la posicion que desea modificar: ");
+        int pos = Integer.parseInt(pos1);
+        
+    }
+
 
 
     
@@ -92,8 +248,10 @@ public class Lab4Samuel_Crysthel {
     
     
     
+
     
     
+
     
     
     
@@ -549,26 +707,19 @@ public class Lab4Samuel_Crysthel {
     
     
     
-    public static void agregarSeresVivos() {
-        String op = "";
-        op = JOptionPane.showInputDialog("Que desea agregar? "
-                + "a) Seres Vivos"
-                +"b)Salir");
-        switch (op) {
-            case "a":
-                String nombre = JOptionPane.showInputDialog("Escriba el nombre: ");
-                String grupo = JOptionPane.showInputDialog("Escriba el grupo sanguineo: ");
-                String sexo = JOptionPane.showInputDialog("Escriba su genero: ");
-                String altura = JOptionPane.showInputDialog("Escriba su altura: ");
-                String peso = JOptionPane.showInputDialog("Escriba su peso: ");
-                seres.add(new SeresVivos(nombre,grupo,sexo,altura,peso));
-                agregarIngenieros(nombre,grupo,sexo,altura,peso);
-                agregarPrimates(nombre,grupo,sexo,altura,peso);
-                break;
-            case "b":
-                System.exit(0);
-                break;
-        }
+
+    
+
+    public static void agregarseresVivos() {
+        String nombre = JOptionPane.showInputDialog("Escriba el nombre: ");
+        String grupo = JOptionPane.showInputDialog("Escriba el grupo sanguineo: ");
+        String sexo = JOptionPane.showInputDialog("Escriba su genero: ");
+        String altura = JOptionPane.showInputDialog("Escriba su altura: ");
+        String peso = JOptionPane.showInputDialog("Escriba su peso: ");
+        seres.add(new SeresVivos(nombre, grupo, sexo, altura, peso));
+        agregarIngenieros(nombre, grupo, sexo, altura, peso);
+        agregarPrimates(nombre, grupo, sexo, altura, peso);
+
     }
     
     public static void agregarIngenieros(String nombre, String grupo, String sexo, String altura, String peso){
@@ -659,6 +810,5 @@ public class Lab4Samuel_Crysthel {
                         JOptionPane.showInputDialog("Posicion a Ingeniero a eliminar: "));
                 seres.remove(p);
     }
-
 }
 
