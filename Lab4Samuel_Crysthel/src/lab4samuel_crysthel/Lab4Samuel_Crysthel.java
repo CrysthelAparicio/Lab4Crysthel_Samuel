@@ -24,7 +24,7 @@ public class Lab4Samuel_Crysthel {
         String opcion;
         do {
             opcion = JOptionPane.showInputDialog("MENU:\n"
-                    + "1) Agregar\n"
+                    + "2) Agregar\n"
                     + "2) Modificar\n"
                     + "3) Eliminar\n"
                     + "4) Permiso lanzar viaje\n"
