@@ -34,5 +34,10 @@ public class MonoBaboom extends Primates {
     public String toString() {
         return "MonoBaboom{" + "colorPelo=" + colorPelo + '}';
     }
+    @Override
+     public int llenarcomida(){
+        return 100;
+    }
+    
 
 }

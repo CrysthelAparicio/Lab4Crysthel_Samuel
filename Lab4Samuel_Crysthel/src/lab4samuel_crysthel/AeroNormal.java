@@ -22,32 +22,21 @@ public class AeroNormal extends MedioTransporte {
 
     public AeroNormal(String gasolina, String paisdepartida, String paisdellegada, int indicador, int distancia, int altitud) {
         super(indicador, distancia, altitud);
-        setGasolina(gasolina);
+        this.gasolina = gasolina;
         this.paisdepartida = paisdepartida;
         this.paisdellegada = paisdellegada;
     }
+
+    
+
+    
 
     public String getGasolina() {
         return gasolina;
     }
 
     public void setGasolina(String gasolina) {
-        String gaso = JOptionPane.showInputDialog("Que gaso desea?"
-                + "a.Super"
-                + "b.Regular"
-                + "c.Diesel");
-        switch (gaso) {
-            case "a":
-                this.gasolina = gasolina;
-                break;
-            case "b":
-                this.gasolina = gasolina;
-                break;
-            case "c":
-                this.gasolina = gasolina;
-                break;
-        }
-        
+        this.gasolina = gasolina;
 
     }
 
@@ -70,11 +59,6 @@ public class AeroNormal extends MedioTransporte {
     @Override
     public String toString() {
         return "AeroNormal{" + "gasolina=" + gasolina + ", paisdepartida=" + paisdepartida + ", paisdellegada=" + paisdellegada + '}';
-    }
-
-    @Override
-    public float llenarTanque() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -2,7 +2,7 @@ package lab4samuel_crysthel;
 
 import java.util.ArrayList;
 
-public abstract class MedioTransporte {
+public class MedioTransporte {
     private int indicador;
     private int distancia;
     private int altitud;
@@ -53,8 +53,5 @@ public abstract class MedioTransporte {
     public String toString() {
         return "MedioTransporte{" + "indicador=" + indicador + ", distancia=" + distancia + ", altitud=" + altitud + ", pr=" + pr + '}';
     }
-    
-   public abstract float llenarTanque();
-
     
 }

@@ -23,6 +23,7 @@ public class Helicoptero extends AeroNormal {
         this.numdepatas = numdepatas;
     }
 
+
     public int getNumdehelices() {
         return numdehelices;
     }

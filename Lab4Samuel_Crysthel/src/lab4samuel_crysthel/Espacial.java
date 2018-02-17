@@ -54,10 +54,6 @@ public class Espacial extends MedioTransporte{
         return "Espacial{" + "combustible=" + combustible + ", planetadellegada=" + planetadellegada + ", planetadepartida=" + planetadepartida + '}';
     }
 
-    @Override
-    public float llenarTanque() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     
     

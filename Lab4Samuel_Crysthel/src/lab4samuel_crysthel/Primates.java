@@ -77,10 +77,8 @@ public class Primates extends SeresVivos {
     public String toString() {
         return "Primates{" + "areaAsignada=" + areaAsignada + ", comida=" + comida + ", planetaAsignado=" + planetaAsignado + ", lugarNacimiento=" + lugarNacimiento + '}';
     }
-
-    @Override
-    public float llenarComida() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int llenarcomida(){
+        return 0;
     }
 
 }

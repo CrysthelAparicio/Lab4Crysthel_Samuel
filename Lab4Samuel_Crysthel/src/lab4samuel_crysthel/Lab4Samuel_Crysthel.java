@@ -16,6 +16,7 @@ public class Lab4Samuel_Crysthel {
     static ArrayList<Ingenieros> ing = new ArrayList();
     static ArrayList<SeresVivos> seres  = new ArrayList();
     static ArrayList<MedioTransporte> medio = new ArrayList();
+    static Cola cola = new Cola();
     
 
     /**
@@ -25,6 +26,7 @@ public class Lab4Samuel_Crysthel {
         // TODO code application logic here
 
     String op ="";
+     String nombre="",  grupo="",  sexo="",  altura="",  peso="";
         while (!op.equalsIgnoreCase("c")) {
             op = JOptionPane.showInputDialog("Menu\n"
                     + "a) Crear Ingenieros\n"
@@ -32,8 +34,7 @@ public class Lab4Samuel_Crysthel {
                     + "c) Salir ");
             switch (op) {
                 case "a":
-                    String nombre="",  grupo="",  sexo="",  altura="",  peso="";
-                    agregarIngenieros( nombre,  grupo,  sexo,  altura,  peso);
+                    agregarIngenieros();
                     break;
                 case "b":
                     LogIn();
@@ -50,6 +51,7 @@ public class Lab4Samuel_Crysthel {
             if((ing.get(i).getCorreo().equals(correo))&&(ing.get(i).getPassword().equals(contrasena))){
                 int pos=i;
                 LogInInge(pos);
+                ing.get(i).setCantidadCafe(0);
                 break;
                 
             }
@@ -89,11 +91,14 @@ public class Lab4Samuel_Crysthel {
             case "b":
                 String op3 = JOptionPane.showInputDialog(
                           "a)MODIFICAR INGENIEROS\n"
-                        + "b)ELIMINAR INGENIEROS");
+                        + "b)ELIMINAR INGENIEROS\n"
+                                  + "c)LLENAR CAFE");
                 switch (op3) {
                     case "a":
+                        modificarIngeniero();
                         break;
                     case "b":
+                        eliminarIngenieros();
                         break;
                 }
                 break;
@@ -110,11 +115,14 @@ public class Lab4Samuel_Crysthel {
                         modificarprimates();
                         break;
                     case "c":
+                        eliminarPrimates();
                         break;
                 }
 
                 break;
             case "d":
+                String agregar = JOptionPane.showInputDialog("Ingrese que es lo que desea agregar: ");
+                cola.Queue(agregar);
                 break;
         }
 
@@ -822,30 +830,25 @@ public class Lab4Samuel_Crysthel {
         String sexo = JOptionPane.showInputDialog("Escriba su genero: ");
         String altura = JOptionPane.showInputDialog("Escriba su altura: ");
         String peso = JOptionPane.showInputDialog("Escriba su peso: ");
-        seres.add(new SeresVivos(nombre, grupo, sexo, altura, peso) {
-            @Override
-            public float llenarComida() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
-        agregarIngenieros(nombre, grupo, sexo, altura, peso);
+        seres.add(new SeresVivos(nombre, grupo, sexo, altura, peso));
         agregarPrimates(nombre, grupo, sexo, altura, peso);
 
     }
     
-    public static void agregarIngenieros(String nombre, String grupo, String sexo, String altura, String peso){
+    public static void agregarIngenieros(){
+        String nombre = JOptionPane.showInputDialog("Escriba el nombre: ");
+        String grupo = JOptionPane.showInputDialog("Escriba el grupo sanguineo: ");
+        String sexo = JOptionPane.showInputDialog("Escriba su genero: ");
+        String altura = JOptionPane.showInputDialog("Escriba su altura: ");
+        String peso = JOptionPane.showInputDialog("Escriba su peso: ");
         String correo = JOptionPane.showInputDialog("Escriba el correo: ");
         String nombreUsuario = JOptionPane.showInputDialog("Escriba el nombre del Usuario: ");
         String idioma = JOptionPane.showInputDialog("Escriba su idioma: ");
         String password = JOptionPane.showInputDialog("Escriba su password: ");
         int cantidadCafe = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de cafe: "));
         String fechaNacimiento = JOptionPane.showInputDialog("Escriba su fecha Nacimiento: ");
-        seres.add(new Ingenieros(correo, nombreUsuario, idioma, password, cantidadCafe, fechaNacimiento, nombre, grupo, sexo, altura, peso) {
-            @Override
-            public float llenarCafe() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
+        ing.add(new Ingenieros(correo, nombreUsuario, idioma, password, cantidadCafe, fechaNacimiento, nombre, grupo, sexo, altura, peso)) ;
+        
     }
     
     public static void agregarPrimates(String nombre, String grupo, String sexo, String altura, String peso){
@@ -877,12 +880,7 @@ public class Lab4Samuel_Crysthel {
         int indicador = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indicador: "));
         int distancia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la distancia: "));
         int altitud = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la altitud: "));
-        medio.add(new MedioTransporte(indicador, distancia, altitud) {
-            @Override
-            public float llenarTanque() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
+        medio.add(new MedioTransporte(indicador, distancia, altitud));
         agregarAereoNormal(indicador, distancia, altitud);
     }
     

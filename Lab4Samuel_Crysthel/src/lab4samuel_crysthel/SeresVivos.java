@@ -9,7 +9,7 @@ package lab4samuel_crysthel;
  *
  * @author COPECO -13
  */
-public abstract class SeresVivos {
+public class SeresVivos {
 
     protected String nombre;
     protected String grupo;
@@ -72,6 +72,10 @@ public abstract class SeresVivos {
     public String toString() {
         return "SeresVivos{" + "nombre=" + nombre + ", grupo=" + grupo + ", sexo=" + sexo + ", altura=" + altura + ", peso=" + peso + '}';
     }
-    
-    public abstract float llenarComida();
+    public int llenarcafe(){
+        return 0;
+    }
+     public int llenarcomida(){
+        return 0;
+    }
 }

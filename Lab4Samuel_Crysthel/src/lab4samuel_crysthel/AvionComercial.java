@@ -23,6 +23,7 @@ public class AvionComercial extends AeroNormal {
         this.funciona = funciona;
     }
 
+
     public int getNumdepasajeros() {
         return numdepasajeros;
     }
@@ -43,7 +44,7 @@ public class AvionComercial extends AeroNormal {
     public String toString() {
         return "AvionComercial{" + "numdepasajeros=" + numdepasajeros + ", funciona=" + funciona + '}';
     }
-    
+
     
     
     
