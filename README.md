@@ -16,9 +16,9 @@ Ejemplo
 Copias el link del proyecto, luego en el bash ponemos el comando "git clone (link)
 Abrimos el proyecto en Netbeans
 
-Autoras
+Autores
 ------------
-Nohelia Euceda
+Samuel FLores
 Crysthel Aparicio
 
 Licencia
